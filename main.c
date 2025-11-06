@@ -5,22 +5,34 @@
 
 void main(void)
 {
-  //실습 5
+  //실습 6
 
   char input[100];
   FILE*fp;
-  int i;
+  char c;
   
   //fopen
-  fp=fopen("sample.txt","w");
- 
- //fprintf
-  for(i=0; i<3; i++){
-  printf("input a word: ");
-  scanf("%s",input);
-  fprintf(fp,"%s\n",input);
-  } 
+  fp=fopen("sample.txt","r");
+  if(fp==NULL)
+  {
+    printf("Failed to open file!\n");
+    return -1;
+  }
+
+  #if 0
+  while( (c=fgetc(fp)) != EOF)
+  {
+    putchar(c);
+  }
+  #endif
   
+  #if 1
+  while( fgets(input,100,fp) > 0 ) 
+  {
+    printf("%s",input);
+  }     
+    
+  #endif
   //fclose
   fclose(fp); 
    

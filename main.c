@@ -5,11 +5,24 @@
 
 void main(void)
 {
-  //실습 4
- 
-  char str[30]="happy C programming";
+  //실습 5
+
+  char input[100];
+  FILE*fp;
+  int i;
   
-  printf("문자열\"%s\"의 길이: %i",str,strlen(str)); 
+  //fopen
+  fp=fopen("sample.txt","w");
+ 
+ //fprintf
+  for(i=0; i<3; i++){
+  printf("input a word: ");
+  scanf("%s",input);
+  fprintf(fp,"%s\n",input);
+  } 
+  
+  //fclose
+  fclose(fp); 
    
   system("PAUSE");	
   return 0;
